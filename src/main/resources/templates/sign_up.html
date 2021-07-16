@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+	<link th:href=@{/styles/sign_up.css} rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="main-div">
+		
+		<div id="form-div">
+			<p>Sign Up</p>
+			<div id="inner-form-div">
+				<form th:action = @{/process_sign_up} method="post" th:object=${user}>
+					
+					<label for="first-name" class="form-group row">
+						<input class="input" id="first-name" type="text" th:field=*{firstName} min="2" max="20" placeholder="First Name" required>
+					</label>
+					
+					<label for="last-name" class="form-group row">
+						<input class="input" id="last-name" type="text" th:field=*{lastName} min="2" max="20" placeholder="Last Name" required>
+					</label>
+					
+					<label for="email" class="form-group row">
+						<input class="input" id="email" type="email" th:field=*{email}  min="2" max="45" placeholder="example@email.com" required>
+					</label>
+					
+					<label for="password" class="form-group row">
+						<input class="input" id="password" type="password" th:field=*{password} placeholder="password" min="6" maxlength="15" required>
+					</label>
+					<span>
+						<button type="submit" value="submit" class="btn btn-primary">Sign Up</button>
+					</span>
+				</form>
+			</div>
+			<p>Already a user? <a id="sign-in" th:href=@{/sign_in}>Sign In</a>
+		</div>
+		
+	</div>
+</body>
+</html>

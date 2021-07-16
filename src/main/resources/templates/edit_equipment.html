@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+	<link th:href=@{/styles/dashboard.css} rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="main" class="container">
+		<div class="sidebar">
+			<nav>
+				<ul>
+				 	<li><a th:href=@{/admin_dashboard}>Home - Issues</a></li>
+				 	<li><a th:href=@{/add_equipment}>Add Equipment</a></li>
+				 	<li><a th:href=@{/view_equipment}>View Equipment</a></li>
+				 	<li><a th:href=@{/user_list}>Users</a></li>
+				 	<li><a th:href=@{/admin_about}>About</a></li>
+				</ul>
+			</nav>
+			<div id="logout-button">
+				<form th:action="@{/logout}" method="post" class="logout-btn">
+					<input type="submit" value="Logout"  >
+				</form>
+			</div>
+		</div>	
+		<div class="main-content">
+			<div id="heading">
+				<p>Logged in as: <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+				<span sec:authentication="principal.authorities">Roles</span>
+			</div>
+			
+			<div class="main-wrapper">
+			
+				<h1>Edit Equipment</h1>
+				<form th:action = @{/equipment/save} method="post" th:object=${editEquipment}>
+				
+				<input type="hidden" th:field="*{id}">
+				
+				<div class="form-group row">
+					<label for="equipment-name" class="form-label">Equipment
+			    		<input type="text" class="form-control" id="equipment-name" th:field=*{name} min="4" maxlength="64" >
+					</label>
+				</div>
+				
+				<div class="form-group row">
+					<label for="equipment-description" class="form-label">Description
+			    		<input type="text" class="form-control" id="equipment-description" th:field=*{description} min="10" maxlength="150">
+			    	</label>
+		    	</div>
+				
+				<div class="form-group row">
+					<label for="equipment-location" class="form-label">Location
+				    		<input type="text" class="form-control" id="equipment-location" th:field=*{location} min="4" maxlength="64">
+					</label>
+				</div>
+				 
+				<button type="submit" value="submit" class="btn btn-primary">Update</button>
+			</form>
+			</div>
+				
+		</div>
+	</div>
+</body>
+</html>

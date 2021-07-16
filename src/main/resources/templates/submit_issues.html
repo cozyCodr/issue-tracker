@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+	<link th:href=@{/styles/dashboard.css} rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="main-div">
+		<div class="sidebar">
+			<nav>
+				<ul>
+					<li id="user-id"><b>[[${#request.userPrincipal.principal.fullName}]]</b><br> <span sec:authentication="principal.authorities">Roles</span></li>
+				 	<li><a th:href=@{/dashboard}>Home - Issues</a></li>
+				 	<li><a th:href=@{/submit_issues}>Add New Issue</a></li>
+				 	<li><a th:href=@{/user_about}>About</a></li>
+				</ul>
+			</nav>
+			<div id="logout-button">
+				<form th:action="@{/logout}" method="post" class="logout-btn">
+					<input type="submit" value="Logout" id="logout-btn" >
+				</form>
+			</div>
+		</div>	
+		<div id="submit-issues-main" class="main-content">
+			<div id="add-issue">
+				<p>Add New Issue</p>
+			</div>
+			<div>
+				<form th:action = @{/process_add_issue} method="post" th:object=${issue}>
+				
+					<div class="mb-4">
+				    	<label for="issue-equipment" class="form-label">Equipment
+				    		<input type="text" class="form-control" id="issue-equipment" th:field=*{equipment} min="4" maxlength="64" >
+				    	</label>
+					</div>	
+					<div class="mb-4">
+				    	<label for="issue-equipment" class="form-label">Description
+				    		<input type="text" class="form-control" id="issue-equipment" th:field=*{description} min="10" maxlength="150">
+				    	</label>
+					</div>
+					<div class="mb-4">
+				    	<label for="issue-location" class="form-label">Location
+				    		<input type="text" class="form-control" id="issue-location" th:field=*{location} min="4" maxlength="64">
+				    	</label>
+					</div>
+				  <button type="submit" value="submit" id="submit-issues-add-btn" class="btn">Add</button>
+				</form>
+			</div>	
+				
+		</div>
+	</div>
+</body>
+</html>

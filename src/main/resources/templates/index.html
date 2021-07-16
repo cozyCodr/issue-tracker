@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Issue Tracker</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+	<link th:href=@{/styles/index.css} rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="main-div" >
+		<div id="card">
+			<div >
+				<p>Zesco Issue Tracker</p>
+			</div>
+			<div class="button">
+				<a th:href=@{/sign_up}><button class="btn" >Sign up</button></a>
+				<a th:href=@{/dashboard}><button class="btn " >Sign in </button></a>
+			</div>
+		</div>		
+	</div>
+	<script th:href=@{/JavaScript/} >
+	</script>
+</body>
+</html>

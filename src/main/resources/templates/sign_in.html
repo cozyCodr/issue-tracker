@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Sign In</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+</head>
+<body>
+	<div class="container text-center">
+		<h1>Sign In</h1>
+		<div >
+			<form th:action=@{/dashboard} method="post">
+				<div class="form-group row">
+					<label for="email" class="col-form-label col-4">
+						<input id="email" type="email" placeholder="example@email.com" required/>
+					</label>
+				</div>
+				
+				<div class="form-group row">
+					<label for="password" class="col-form-label col-4">
+						<input id="password" type="password" placeholder="password" required/>
+					</label>
+				</div>
+				
+				<div>
+					<button type="submit" value="submit" class="btn btn-primary">Sign In</button>
+				</div>
+			</form>
+			
+			<p>Not a user? <a th:href=@{/sign_up}>Sign Up</a>
+		</div>
+	</div>
+</body>
+</html>

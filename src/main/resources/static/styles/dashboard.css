@@ -1,0 +1,95 @@
+@charset "ISO-8859-1";
+
+li {
+	list-style: none;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: orange;
+}
+
+b {
+	color: white;
+}
+
+span {
+	color: white;
+}
+
+#main-div {
+	background-color: rgba(0,0,0,0.04);
+	display: flex;	
+}
+
+#user-id {
+	padding-bottom: 4rem;	
+}
+
+.sidebar {
+	width: 250px;
+	height: 100vh;
+	margin: 1rem;
+	background-color: #17c61c;
+}
+
+nav {
+	padding-bottom: 4rem;
+	margin: 0;
+}
+
+
+#logout-button {
+	width: 100%;
+	margin-left: 40px;
+}
+
+#logout-btn {
+	border: none;
+	border-radius: 1px;
+	background-color: orange;
+}
+
+#logout-btn:hover {
+	background-color: #0d7110;
+}
+
+.main-content {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width:100%;
+}
+
+#submit-issues-main{
+	width: 100%;
+	align-items: center;
+}
+
+#submit-issues-add-btn {
+	color: white;
+	background-color: #0d7110;
+}
+
+#submit-issues-add-btn:hover {
+	background-color: orange;
+	color: black
+}
+
+.link-from-about {
+	color: #0d7110;
+}
+
+.edit-btn {
+	color: #0d7110
+}
+
+.edit-btn:hover {
+	color: orange
+}

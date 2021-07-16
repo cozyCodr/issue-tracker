@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" >
+	<link th:href=@{/styles/dashboard.css} rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="main-div">
+		<div class="sidebar">
+			<nav>
+				<ul>
+					<li id="user-id"><b>[[${#request.userPrincipal.principal.fullName}]]</b><br> <span sec:authentication="principal.authorities">Roles</span></li>
+				 	<li><a th:href=@{/dashboard}>Home - Issues</a></li>
+				 	<li><a th:href=@{/submit_issues}>Add New Issue</a></li>
+				 	<li><a th:href=@{/user_about}>About</a></li>
+				</ul>
+			</nav>
+			<div id="logout-button">
+				<form th:action="@{/logout}" method="post" class="logout-btn">
+					<input type="submit" value="Logout" id="logout-btn" >
+				</form>
+			</div>
+		</div>	
+		<div class="main-content">
+				<h3>Developed By <a class="link-from-about" href="https://linkedIn.com/in/bright-londa">Bright Londa</a></h3>
+				<p>Bioinformatics student and JavaScript Developer</p>
+				<p><a class="link-from-about" href="https://linkedIn.com/in/bright-londa">LinkedIn</a></p>
+				<p><a class="link-from-about" href="https://github.com/in/cozyCodr">Github</a></p>
+				<p><a class="link-from-about" href="https://twitter.com/cozyCodr">Twitter</a></p>
+		</div>
+	</div>
+</body>
+</html>
