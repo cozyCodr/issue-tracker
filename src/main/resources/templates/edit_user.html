@@ -10,10 +10,11 @@
 	<link th:href=@{/styles/dashboard.css} rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div id="main" class="container">
+	<div id="main-div">
 		<div class="sidebar">
 			<nav>
 				<ul>
+				 	<li id="user-id"><b>[[${#request.userPrincipal.principal.fullName}]]</b><br> <span sec:authentication="principal.authorities">Roles</span></li>
 				 	<li><a th:href=@{/admin_dashboard}>Home - Issues</a></li>
 				 	<li><a th:href=@{/add_equipment}>Add Equipment</a></li>
 				 	<li><a th:href=@{/view_equipment}>View Equipment</a></li>
@@ -29,12 +30,12 @@
 		</div>	
 		<div class="main-content">
 			<div id="heading">
-				<p>Logged in as: <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+				<h3>Issues</h3>
 			</div>
 			
 			<div class="main-wrapper">
 			
-				<h1>Issues</h1>
+				
 				<form th:action = @{/user/save} method="post" th:object=${editUser}>
 			
 				
